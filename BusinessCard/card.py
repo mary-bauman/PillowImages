@@ -1,19 +1,21 @@
 from PIL import Image, ImageDraw, ImageFont
-from os.path import join
+import os
 
 # images 
 image = Image.new('RGBA', (800,400), (255,255,255))
-bird = Image.open(join('resources', 'card', 'bird.png'))
-logo = Image.open(join('resources', 'card', 'logo.png'))
+
+script_dir = os.path.dirname(__file__)
+bird = Image.open(os.path.join(script_dir, 'resources', 'card', 'bird.png'))
+logo = Image.open(os.path.join(script_dir, 'resources', 'card', 'logo.png'))
 
 # data
 draw = ImageDraw.Draw(image)
 font_large = ImageFont.truetype(
-	font = join('resources', 'RabbidHighway.otf'), 
+	font = os.path.join(script_dir, 'resources', 'RabbidHighway.otf'), 
 	size = 60
 )
 font_small = ImageFont.truetype(
-	font = join('resources', 'RabbidHighwayOblique.otf'), 
+	font = os.path.join(script_dir, 'resources', 'RabbidHighwayOblique.otf'), 
 	size = 24
 )
 
