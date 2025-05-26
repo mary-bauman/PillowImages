@@ -1,19 +1,20 @@
 from PIL import Image, ImageChops 
-from os.path import join 
+import os
 
-cat = Image.open(join('resources', 'cat.jpg'))
-dog = Image.open(join('resources', 'dog.jpg'))
-raccoon = Image.open(join('resources', 'raccoon.png'))
-checkerboard = Image.open(join('resources', 'checkerboard.png'))
-circle = Image.open(join('resources', 'circle.png'))
-bird = Image.open(join('resources', 'card', 'bird.png'))
+script_dir = os.path.dirname(__file__)
+cat = Image.open(os.path.join(script_dir, 'resources', 'cat.jpg'))
+dog = Image.open(os.path.join(script_dir, 'resources', 'dog.jpg'))
+raccoon = Image.open(os.path.join(script_dir, 'resources', 'raccoon.png'))
+checkerboard = Image.open(os.path.join(script_dir, 'resources', 'checkerboard.png'))
+circle = Image.open(os.path.join(script_dir, 'resources', 'circle.png'))
+bird = Image.open(os.path.join(script_dir, 'resources', 'card', 'bird.png'))
 
 
 # paste an image with a mask
-# cat.paste(
-# 	im = bird, 
-# 	box = (100,200), 
-# 	mask = bird)
+cat.paste(
+	im = bird, 
+	box = (100,200), 
+	mask = bird)
 
 # paste an image with a blending mode 
 image_chops = ImageChops.overlay(dog, cat)
